@@ -9,6 +9,7 @@ use super::{
     selection::{roulette_wheel_selection, tournament_selection, SelectionMethod},
 };
 
+
 pub struct GA<T, U> {
     chromosome_type: PhantomData<U>,
     population: Vec<T>,
@@ -105,6 +106,7 @@ where
 
     /// It's basically the standard deviation of the fitness of the population
     /// The second value is the mean
+    /// Returns (standard deviation, mean)
     fn calculate_genetic_diversity(&self) -> (f64, f64) {
         let mean: f64 = self.population.iter().map(|a| a.get_fitness()).sum();
         let mean = mean / self.population_size as f64;

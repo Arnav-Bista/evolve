@@ -1,3 +1,5 @@
+use std::{thread::sleep, time::Duration};
+
 use egui::Vec2;
 use egui_plot::{Corner, Legend, Line, Plot, PlotItem, PlotPoints};
 
@@ -17,7 +19,7 @@ pub struct RealTimePlotTSP {
 }
 
 impl RealTimePlotTSP {
-    const SIZE: (f32, f32) = (800.0, 400.0);
+    const SIZE: (f32, f32) = (1900.0, 1000.0);
     const PLOT_SIZE: (f32, f32) = (
         Self::SIZE.0 / 2.0 - Self::SIZE.0 * 0.03,
         Self::SIZE.1 - Self::SIZE.1 * 0.2,
@@ -55,7 +57,7 @@ impl eframe::App for RealTimePlotTSP {
                 ui.group(|ui| {
                     ui.vertical(|ui| {
                         let plot = Plot::new("fitnessplot");
-                        plot.legend(Legend::default().position(Corner::LeftTop))
+                        plot.legend(Legend::default().position(Corner::RightBottom))
                             .allow_drag(false)
                             .allow_drag(false)
                             .show_axes(true)
@@ -108,7 +110,10 @@ impl eframe::App for RealTimePlotTSP {
             });
         });
 
-        ctx.request_repaint();
+
+        if !(self.last_iteration >= self.iterations) {
+            ctx.request_repaint();
+        }
     }
 }
 
@@ -160,7 +165,7 @@ impl eframe::App for RealTimePlotSA {
                 ui.group(|ui| {
                     ui.vertical(|ui| {
                         let plot = Plot::new("fitnessplot");
-                        plot.legend(Legend::default().position(Corner::LeftTop))
+                        plot.legend(Legend::default().position(Corner::RightBottom))
                             .allow_drag(false)
                             .allow_drag(false)
                             .show_axes(true)
