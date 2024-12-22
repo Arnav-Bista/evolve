@@ -16,8 +16,6 @@ pub struct City {
     pub y: f64,
 }
 
-impl C
-
 #[wasm_bindgen]
 #[derive(Serialize, Deserialize)]
 pub struct CandidateWASM {
@@ -63,7 +61,7 @@ impl GaWasm {
         let best = self.ga.best();
         CandidateWASM {
             fitness: best.get_fitness(),
-            chromosome: best.get_chromosome().iter().map(|(x, y)| City { x: *x, y: *y }),
+            chromosome: best.get_chromosome().iter().map(|(x, y)| City { x: *x, y: *y }).collect(),
         }
     }
 }
