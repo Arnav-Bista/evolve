@@ -65,6 +65,11 @@ impl GaWasm {
         selection_target: f64,
         elitism: f64,
     ) -> CandidateWASM {
+
+        self.ga.set_mutation_rate(mutation_rate);
+        self.ga.set_elitism_target(elitism);
+        self.ga.set_selection_target(selection_target);
+
         self.ga.step(SelectionMethod::RouletteWheel);
         let best = self.ga.best();
         CandidateWASM {

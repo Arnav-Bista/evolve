@@ -9,7 +9,6 @@ use super::{
     selection::{roulette_wheel_selection, tournament_selection, SelectionMethod},
 };
 
-
 pub struct GA<T, U> {
     chromosome_type: PhantomData<U>,
     population: Vec<T>,
@@ -120,23 +119,6 @@ where
         (std_deviation, mean)
     }
 
-    // pub fn step_print(&mut self, selection_method: SelectionMethod) {
-    //     let parents = self.select(selection_method);
-    //     self.repopulate(parents);
-    //     // Calculate best fitness of the population
-    //     let fitness = self
-    //         .population
-    //         .iter()
-    //         .map(|a| a.get_fitness())
-    //         .max_by(|a, b| a.total_cmp(b))
-    //         .unwrap();
-    //     let (dev, mean) = self.calculate_genetic_diversity();
-    //     println!(
-    //         "Best fitness: {}\tDiversity: {}\tMean {}",
-    //         fitness, dev, mean
-    //     );
-    // }
-
     /// Step through the genetic algorithm
     pub fn step(&mut self, selection_method: SelectionMethod) -> (f64, f64, f64) {
         let parents = self.select(selection_method);
@@ -158,6 +140,22 @@ where
             .max_by(|a, b| a.get_fitness().total_cmp(&b.get_fitness()))
             .unwrap()
             .clone()
+    }
+
+    pub fn set_elitism_target(&mut self, elitism_target: f64) {
+        self.elitism_target = (self.population_size as f64 * elitism_target) as usize;
+    }
+
+    pub fn set_population_size(&mut self, population_size: usize) {
+        self.population_size = population_size;
+    }
+
+    pub fn set_mutation_rate(&mut self, mutation_rate: f64) {
+        self.mutation_rate = mutation_rate;
+    }
+
+    pub fn set_selection_target(&mut self, selection_target: f64) {
+        self.selection_target = (self.population_size as f64 * selection_target) as usize;
     }
 }
 
