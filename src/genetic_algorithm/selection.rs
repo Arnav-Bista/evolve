@@ -49,7 +49,7 @@ where
         tournament.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
         let mut cumulative = 0.0;
         for i in 0..tournament.len() {
-            tournament[i].1 = best_pick_probability * (best_pick_probability - 1.0).powi(i as i32);
+            tournament[i].1 = best_pick_probability * (1.0 - best_pick_probability).powi(i as i32);
             tournament[i].1 += cumulative;
             cumulative += tournament[i].1;
         }
