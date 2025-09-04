@@ -1,5 +1,7 @@
 # Constraints
 
+‼️ WASM Powered Demo at: https://arnavbista.com/projects/constraints
+
 ## What is it?
 
 `Constraints` is a personal project of mine inspired by my IB CS final year
