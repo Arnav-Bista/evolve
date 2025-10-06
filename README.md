@@ -1,10 +1,10 @@
-# Constraints
+# Evolve
 
 ‼️ WASM Powered Demo at: https://arnavbista.com/projects/constraints
 
 ## What is it?
 
-`Constraints` is a personal project of mine inspired by my IB CS final year
+`Evolve` is a personal project of mine inspired by my IB CS final year
 case study about Genetic Algorithms, and Constraints Programmings @
 The University of St Andrews. It was interesting to see how we can
 solve (or approximate the solution) for problems where orthodox approaches fail
@@ -15,7 +15,7 @@ would have a time complexity of O(n!) which is computationally infeasible for
 large n
 
 This is the result of multiple trials and errors. The initial program was
-written in Julia, rewritten in Java then in Rust and finally updated as a
+written in Julia, rewritten in Java then finaly in Rust as a
 complete and generic algorithm. 
 
 
