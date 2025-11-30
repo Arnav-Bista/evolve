@@ -25,7 +25,7 @@ So far, this project contains two algorithms:
 - Genetic Algorithm
 - Simulated Annealing
 
-And it currently solves the [Travelling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem).
+And it currently approximates the solusions for the [Travelling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem).
 
 ### Genetic Algorithm
 
